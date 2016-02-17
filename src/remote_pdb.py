@@ -7,6 +7,7 @@ import socket
 import sys
 
 from pdb import Pdb
+# import ipdb
 
 __version__ = "1.2.0"
 
@@ -111,6 +112,7 @@ class RemotePdb(Pdb):
             frame = sys._getframe().f_back
         try:
             Pdb.set_trace(self, frame)
+            # ipdb.set_trace(frame=frame, context=self)
         except IOError as exc:
             if exc.errno != errno.ECONNRESET:
                 raise
